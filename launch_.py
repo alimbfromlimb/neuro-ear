@@ -11,7 +11,9 @@ sys.stderr = stderr
 from keras.models import load_model
 import keras.backend as K
 K.set_image_data_format('channels_last')
+import matplotlib
 import matplotlib.pyplot as plt
+matplotlib.use('Agg')
 from scipy.io import wavfile
 
 # Again, getting rid of logs
