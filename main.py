@@ -1,7 +1,9 @@
 from launch_ import *
 from flask import *
+# from pydub import AudioSegment
 
 import os
+
 
 app = Flask(__name__)
 
@@ -35,8 +37,14 @@ def about():
 def success():
     if request.method == 'POST':
         f = request.files['file']
-        f.save(f.filename)
         track_name = f.filename
+        f.save(track_name)
+        assert track_name[-3:] == 'wav' or track_name[-3:] == 'mp3', track_name
+        # if track_name[-3:] == 'mp3':
+        #     sound = AudioSegment.from_mp3(track_name)
+        #     os.remove(track_name)
+        #     sound.export("file.wav", format="wav")
+        #     track_name = "file.wav"
         print(f.filename)
         inst = instrument_classifier(track_name, model)
         print(inst)
