@@ -1,14 +1,7 @@
 import numpy as np
 import wave
 import os
-import sys
 import math
-# here I am blocking "Using tensorflow backend" message from printing to a terminal
-stderr = sys.stderr
-sys.stderr = open(os.devnull, 'w')
-import keras
-sys.stderr = stderr
-from keras.models import load_model
 import keras.backend as K
 K.set_image_data_format('channels_last')
 import matplotlib
@@ -126,7 +119,7 @@ def inst_probability(Y):
 def instrument_classifier(file, model, window = 1.0):
 
     # Let's define the "window size" of an audioclip which then will be turned into a spectrogram
-    dur = get_duration_wav(file)
+    dur = min(20, get_duration_wav(file))
 
     # Spectrograms for each clip will be stored here.
     X = []
@@ -167,4 +160,3 @@ def instrument_classifier(file, model, window = 1.0):
     res = inst_probability(Y)
     str_res = str(inst) + ':       ' + str(res[0]) + ' ' + str(res[1]) + ' ' + str(res[2]) + ' ' + str(res[3]) + ' ' + str(res[4])
     return inst
-
