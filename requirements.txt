@@ -3,6 +3,6 @@ gunicorn==19.6.0
 numpy
 matplotlib
 scipy
-tensorflow==1.14.0
+tensorflow==1.15.2
 keras==2.2.5
 librosa
