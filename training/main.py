@@ -71,6 +71,7 @@ optimizer = torch.optim.Adam(net.parameters(), lr=learning_rate)
 loss_list = []
 acc_list = []
 running_loss = 0.0
+
 for epoch in range(num_epochs):
     print(epoch)
     net.train()
@@ -134,6 +135,7 @@ writer_ = SummaryWriter('runs/test/'+exp_name)
 class_probs = []
 class_preds = []
 net.eval()
+
 with torch.no_grad():
     for data in range(500):
         images, labels = next(testloader)

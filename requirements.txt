@@ -4,5 +4,5 @@ gunicorn==19.6.0
 numpy
 matplotlib
 scipy
-torch
 librosa
+torch
