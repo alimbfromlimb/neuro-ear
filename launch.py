@@ -18,26 +18,24 @@ def file_to_chromagram(file_name):
     return chromagram, l
 
 
-def classifier_torch(file_name, net, maxlength_=None):
+def classifier_torch(file_name, net, maxlength=None):
 
-    chroma, tracklength = file_to_chromagram(file_name)
+    chromo, tracklength = file_to_chromagram(file_name)
 
-    if maxlength_ is None:
-        maxlength_ = tracklength
+    if maxlength is None:
+        maxlength = tracklength
+
+    maxlength = min(maxlength, tracklength) - 1
 
     instruments = ["accordion", "guitar", "piano", "violin"]
     n_inst = len(instruments)
 
-    class Tmp(TrackLoader):
-        chromo = chroma
-        maxlength = maxlength_
-
-    trackloader = Tmp()
+    trackloader = TrackLoader(chromo=chromo, maxlength=maxlength)
 
     class_probs = []
     net.eval()
     with torch.no_grad():
-        for data in range(min(maxlength_, tracklength)):
+        for data in range(maxlength):
             images = trackloader.second(data)
             images = images.to(torch.float)
             outputs = net(images)
@@ -47,9 +45,18 @@ def classifier_torch(file_name, net, maxlength_=None):
     test_probs = np.array(torch.cat([torch.stack(batch) for batch in class_probs]))[:, :n_inst]
 
     im = test_probs.T
-    padding = np.zeros((4, 25))
-    probs = np.repeat(padding + im[:, :25], 150, axis=0)
+    if im.shape[-1] < 25:
+        lacking_secs = 25 - im.shape[-1]
+        probs = np.concatenate((im, np.zeros((4, lacking_secs))), axis=1)
+    else:
+        probs = im[:, :25]
+
+    probs = np.repeat(probs, 150, axis=0)
     probs = np.repeat(probs, 50, axis=1)
-    matplotlib.image.imsave('static/probs.png', 100 - probs, cmap='Blues')
-    print("saved")
+
+    id_ = np.random.randint(low=1, high=1e+10)
+    matplotlib.image.imsave('static/probs/' + str(id_) + '.png', 100 - probs, cmap='Blues')
+    print("feature map saved")
+
+    return id_
 

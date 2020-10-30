@@ -1240,6 +1240,16 @@ section {
   background: #007ed8;
 }
 
+.container__ > img {
+  height: 220px;
+  width: auto;
+}
+
+.container____ > img {
+  height: auto;
+  width: 520px;
+}
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
@@ -1327,3 +1337,7 @@ section {
 #footer .credits a:hover {
   color: #008df1;
 }
+
+
+
+

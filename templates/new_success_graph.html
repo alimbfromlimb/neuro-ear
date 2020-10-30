@@ -27,6 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../static/assets/css/style.css" rel="stylesheet">
+      <link href="../static/assets/css/button_.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: MeFamily - v2.1.0
@@ -70,19 +71,53 @@
 
         <div class="row content">
           <div class="col-lg-6">
-            <img src="../static/probs.png" class="img-fluid" alt="">
+              <div class="container____">
+              <div class="container__">
+                  <img src="../static/instruments_icons.png" class="img-fluid" alt="">
+                  <img src="../static/probs/{{ id_ }}.png" class="img-fluid" alt="">
+                </div>
+                  <img src="../static/timeline.png" class="img-fluid" alt="">
+              </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p class="font-weight-bold">
-              Here are the results! </p><p>
-                Each rectangle represents the probability of an accordion, a guitar, a piano and a violin (from top to bottom) to sound during the first 25 seconds of the track. The brighter, the bigger is the corresponding probability
+              <h3>Here are the results!</h3>
+            <p>
+                Each rectangle represents probability of an accordion, a guitar, a piano and a violin to sound during the first 25 seconds of the track. The brighter is the rectangle, the bigger is the corresponding probability
 
             </p>
+              <p> <br> <br> <br> </p>
+
+
+                <div class="l-center">
+                <form action=/success" method="post" enctype="multipart/form-data" class="l-container">
+                    <div class="o-asset">
+                    <label class="o-asset__select" data-show="true">
+                        <input id="js-select-file" type="file" aria-label="Select Image" class="u-hide-input" accept="audio/*">
+                        <div>Select Audio</div>
+                        </label>
+                    <div class="o-asset__upload" data-show="false">
+                    <div class="o-asset__filename"></div>
+                    <button type="button" class="o-upload" aria-describedby="upload-status">
+                        <div class="o-upload__def"><div>Upload</div></div>
+                        <div class="o-upload__init">Uploading&hellip;</div>
+                        <div class="o-upload__progress"></div>
+                        <div class="o-upload__success">Success!</div>
+                        <div class="u-visually-hidden" id="upload-status" role="alert"></div>
+                    </button>
+                    </div>
+                    </div>
+                </form>
+                </div>
+
+
+
+
 
           </div>
         </div>
       </div>
     </section><!-- End My & Family Section -->
+
 
 
 

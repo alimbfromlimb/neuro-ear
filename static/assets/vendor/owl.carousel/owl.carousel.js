@@ -1740,7 +1740,7 @@
 				});
 			}
 
-			if (typeof option == 'string' && option.charAt(0) !== '_') {
+			if (typeof option == 'string' && option.charAt(0) !== 'apple-touch-icon.png') {
 				data[option].apply(data, args);
 			}
 		});

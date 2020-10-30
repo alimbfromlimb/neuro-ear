@@ -1,0 +1,227 @@
+@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap);
+/* Base */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  color: #323334;
+  background: #E5E5E5;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.125rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button {
+  outline: 0;
+}
+
+button,
+label {
+  font-family: "Futura LT W01 Bold", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
+}
+
+label {
+  display: block;
+  position: relative;
+}
+
+/* Layout */
+.l-center {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+}
+
+.l-container {
+  width: 100%;
+  max-width: 540px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* Utility */
+.u-visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+}
+
+.u-hide-input {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+}
+
+/* Objects - Asset */
+.o-asset {
+  position: relative;
+  overflow: hidden;
+  height: 5rem;
+  border-radius: 0.25rem;
+  background: #FFFFFF;
+}
+
+.o-asset__select,
+.o-asset__upload {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: visibility 0ms ease 10ms, opacity 200ms ease;
+}
+.o-asset__select[data-show=false],
+.o-asset__upload[data-show=false] {
+  transition: visibility 0ms ease 200ms, opacity 200ms ease 10ms;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.o-asset__select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #007bc3;
+  border: 0.1875rem solid #007bc3;
+  border-radius: 0.25rem;
+}
+
+.o-asset__upload {
+  background: #FFFFFF;
+  display: flex;
+}
+
+.o-asset__filename {
+  background: #FFFFFF;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  margin: auto 0;
+}
+
+/* Objects - Upload */
+.o-upload {
+  background: transparent;
+  border: 0;
+  padding: 0 14px;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+}
+
+.o-upload__def,
+.o-upload__init,
+.o-upload__success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border-radius: 0.25rem;
+}
+
+.o-upload__def,
+.o-upload__init {
+  background: #007bc3;
+}
+
+.o-upload__init,
+.o-upload__success {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  visibility: hidden;
+}
+
+.o-upload__def {
+  position: relative;
+}
+.o-upload__def div {
+  position: relative;
+  transition: transform 300ms ease 600ms, opacity 300ms ease 600ms;
+}
+.o-upload__def::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 0.25rem;
+  background: #007bc3;
+}
+@keyframes init {
+  40% {
+    transform: scale(1.55) translateX(-7px);
+  }
+  100% {
+    transform: scale(6, 1.55) translateX(-7px);
+  }
+}
+.o-upload[data-init=true] .o-upload__def div {
+  transform: translateY(20%);
+  opacity: 0;
+}
+.o-upload[data-init=true] .o-upload__def::before {
+  animation: init 1000ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.o-upload__init {
+  transition: transform 300ms ease 900ms, opacity 200ms ease 900ms;
+  opacity: 0;
+  transform: translateY(20%);
+}
+.o-upload[data-init=true] .o-upload__init {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+.o-upload[data-success=true] .o-upload__init {
+  transform: translateY(-100%);
+}
+
+.o-upload__progress {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(25, 25, 25, 0.4);
+  height: 12%;
+  transform-origin: 0 0;
+  transform: scaleX(0);
+  transition: transform 1400ms cubic-bezier(0.65, 0, 0.35, 1);
+}
+.o-upload[data-uploading=true] .o-upload__progress {
+  transform: scaleX(1);
+}
+.o-upload[data-success=true] .o-upload__progress {
+  transition: transform 300ms ease 900ms;
+  transform: scaleX(1) translateY(-1200%);
+}
+
+.o-upload__success {
+  background: rgba(25, 25, 25, 0.4);
+  transition: transform 300ms ease 900ms;
+  transform: translateY(100%);
+}
+.o-upload[data-success=true] .o-upload__success {
+  transform: translateY(0);
+  visibility: visible;
+}

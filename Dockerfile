@@ -1,12 +1,17 @@
 FROM ubuntu:latest
 MAINTAINER Alim Bukharaev "alimbualimbu@gmail.com"
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update \
   && apt-get install -y python3-pip python3-dev \
   && cd /usr/local/bin \
   && ln -s /usr/bin/python3 python \
   && pip3 install --upgrade pip
 
+RUN apt-get install -y ffmpeg 
+
+# RUN apt-get install -y libav-tools
 RUN apt-get install -y libsndfile1
 
 # We copy just the requirements.txt first to leverage Docker cache

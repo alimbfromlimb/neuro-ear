@@ -101,7 +101,7 @@ function jQueryBridget( namespace, PluginClass, $ ) {
       }
 
       var method = instance[ methodName ];
-      if ( !method || methodName.charAt(0) == '_' ) {
+      if ( !method || methodName.charAt(0) == 'apple-touch-icon.png' ) {
         logError( pluginMethodStr + ' is not a valid method' );
         return;
       }

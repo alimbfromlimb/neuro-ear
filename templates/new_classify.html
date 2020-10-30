@@ -132,7 +132,7 @@
             <p>
                 Each one-second piece of the chromagram goes through a deep convolutional neural network, which returns
                 the probability of each instrument to be present on this one-second piece. If you'd like to see the architecture in detail,
-                you can find a diagram here
+                you can find a diagram <a href="../static/model.png">here</a>
             </p>
           </div>
         </div>
@@ -154,8 +154,19 @@
         </div>
 
         <div class="row content">
-          <div class="col-lg-6 order-1 order-lg-2">
+            <div class="col-lg-6 order-1 order-lg-1 pt-3 pt-lg-0">
+            <h3>Go check it out!</h3>
+            <p class="font-italic">
 
+            </p>
+            <p>
+            Upload your own .wav file and see how it works! <br> Files from 4 to 30 seconds long are highly recommended
+            </p>
+            </div>
+          <div class="col-lg-6 order-2 order-lg-2">
+              <p> </p>
+              <p> </p>
+              <p> </p>
 
                             <form action="/success" method="post" enctype="multipart/form-data">
                                 <label for="file" class="file-select" style="margin: 0 60px 0 60px; cursor: pointer">
@@ -173,15 +184,6 @@
                             </form>
 
         </div>
-          <div class="col-lg-6 order-2 order-lg-1 pt-3 pt-lg-0">
-            <h3>Go check it out!</h3>
-            <p class="font-italic">
-
-            </p>
-            <p>
-            Upload your own .wav file and see how it works!
-            </p>
-          </div>
         </div>
 
 

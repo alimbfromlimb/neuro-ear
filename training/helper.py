@@ -29,11 +29,9 @@ class Loader:
 
 
 class TrackLoader:
-    chromo = None
-    maxlength = None
-
-    def __init__(self, ):
-        pass
+    def __init__(self, chromo=None, maxlength=None):
+        self.chromo = chromo
+        self.maxlength = maxlength
 
     def second(self, i):
         assert self.maxlength > i, "only maxlength seconds allowed"

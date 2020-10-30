@@ -159,3 +159,50 @@
   });
 
 })(jQuery);
+
+
+
+/* button shit */
+
+/* Elements */
+
+let select = document.getElementById( 'js-select-file' ),
+    upload = document.querySelector( '.o-asset__upload' ),
+    uploadButton = document.querySelector( '.o-upload' ),
+    filename = document.querySelector( '.o-asset__filename' );
+
+/* Select file */
+
+const selectFile = function() {
+  let files = this.files;
+
+  // leave if no files
+  if( files.length === 0 )
+    return;
+
+  // not doing multiple uploads
+  let file = files[0],
+      type = file.type;
+
+  if( 1 ) {
+    select.setAttribute( 'data-show', false );
+    upload.setAttribute( 'data-show', true );
+    filename.textContent = file.name;
+  }
+};
+
+select.addEventListener( 'change', selectFile, false );
+
+/* "Upload" */
+
+uploadButton.addEventListener( 'click', () => {
+  uploadButton.setAttribute( 'data-init', true );
+
+  setTimeout( () => {
+    uploadButton.setAttribute( 'data-uploading', true );
+  }, 1200 );
+
+  setTimeout( () => {
+    uploadButton.setAttribute( 'data-success', true );
+  }, 2700 );
+} );
