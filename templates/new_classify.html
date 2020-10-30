@@ -27,7 +27,7 @@
 
   <!-- Template Main CSS File -->
   <link href="../static/assets/css/style.css" rel="stylesheet">
-
+  <link href="../static/assets/css/button_.css" rel="stylesheet">
   <!-- =======================================================
   * Template Name: MeFamily - v2.1.0
   * Template URL: https://bootstrapmade.com/family-multipurpose-html-bootstrap-template-free/
@@ -168,20 +168,24 @@
               <p> </p>
               <p> </p>
 
-                            <form action="/success" method="post" enctype="multipart/form-data">
-                                <label for="file" class="file-select" style="margin: 0 60px 0 60px; cursor: pointer">
-                                                <p class="font-weight-bold">
-                                                    Select a file
-                                                </p>
-                                </label>
-                                <input type="file" name="file" id="file" hidden onload="magic()"/>
-                                <label for="file-upload" class="file-upload file-upload_hidden" style="margin: 0 60px 0 60px; cursor: pointer">
-                                                <p class="font-weight-bold">
-                                                    Upload
-                                                </p>
-                                </label>
-                                <input type="submit" value="Upload" name="file-upload" id="file-upload" hidden>
-                            </form>
+              <form action="/success" method="post" enctype="multipart/form-data" class="l-container">
+                    <div class="o-asset">
+                    <label class="o-asset__select" data-show="true">
+                        <input id="js-select-file" type="file" name="file" aria-label="Select Image" class="u-hide-input" accept="audio/*">
+                        <div>Select Audio</div>
+                        </label>
+                    <div class="o-asset__upload" data-show="false">
+                    <div class="o-asset__filename"></div>
+                    <button type="submit" class="o-upload" aria-describedby="upload-status">
+                        <div class="o-upload__def"><div>Upload</div></div>
+                        <div class="o-upload__init">Uploading&hellip;</div>
+                        <div class="o-upload__progress"></div>
+                        <div class="o-upload__success">Success!</div>
+                        <div class="u-visually-hidden" id="upload-status" role="alert"></div>
+                    </button>
+                    </div>
+                    </div>
+                </form>
 
         </div>
         </div>

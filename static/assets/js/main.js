@@ -200,9 +200,9 @@ uploadButton.addEventListener( 'click', () => {
 
   setTimeout( () => {
     uploadButton.setAttribute( 'data-uploading', true );
-  }, 1200 );
+  }, 1200000 );
 
   setTimeout( () => {
     uploadButton.setAttribute( 'data-success', true );
-  }, 2700 );
+  }, 2700000 );
 } );

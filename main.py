@@ -6,10 +6,10 @@ import os
 import sys
 
 
-def cleaner_f():
+def cleaner_f(max_files=32):
     folder = "static/probs/"
     files = os.listdir(folder)
-    if len(files) > 256:
+    if len(files) > max_files:
         for file in files:
             os.remove(folder + file)
 

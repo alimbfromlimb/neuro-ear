@@ -83,21 +83,20 @@
               <h3>Here are the results!</h3>
             <p>
                 Each rectangle represents probability of an accordion, a guitar, a piano and a violin to sound during the first 25 seconds of the track. The brighter is the rectangle, the bigger is the corresponding probability
-
+                <br>
+                <br>
             </p>
-              <p> <br> <br> <br> </p>
 
 
-                <div class="l-center">
-                <form action=/success" method="post" enctype="multipart/form-data" class="l-container">
+              <form action="/success" method="post" enctype="multipart/form-data" class="l-container">
                     <div class="o-asset">
                     <label class="o-asset__select" data-show="true">
-                        <input id="js-select-file" type="file" aria-label="Select Image" class="u-hide-input" accept="audio/*">
+                        <input id="js-select-file" type="file" name="file" aria-label="Select Image" class="u-hide-input" accept="audio/*">
                         <div>Select Audio</div>
                         </label>
                     <div class="o-asset__upload" data-show="false">
                     <div class="o-asset__filename"></div>
-                    <button type="button" class="o-upload" aria-describedby="upload-status">
+                    <button type="submit" class="o-upload" aria-describedby="upload-status">
                         <div class="o-upload__def"><div>Upload</div></div>
                         <div class="o-upload__init">Uploading&hellip;</div>
                         <div class="o-upload__progress"></div>
@@ -107,7 +106,6 @@
                     </div>
                     </div>
                 </form>
-                </div>
 
 
 
