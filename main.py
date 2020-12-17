@@ -6,7 +6,7 @@ import os
 import sys
 
 
-def cleaner_f(max_files=32):
+def cleaner_f(max_files=64):
     folder = "static/probs/"
     files = os.listdir(folder)
     if len(files) > max_files:
@@ -28,9 +28,19 @@ def home():
     return render_template("new_index.html")
 
 
+@app.route('/rus')
+def home_rus():
+    return render_template("new_index_rus.html")
+
+
 @app.route("/classify")
 def classify():
     return render_template("new_classify.html")
+
+
+@app.route("/classify_rus")
+def classify_rus():
+    return render_template("new_classify_rus.html")
 
 
 @app.route('/success', methods=['POST'])
@@ -53,6 +63,28 @@ def success():
             print("The file does not exist")
 
         return render_template("new_success_graph.html", id_=id_)
+
+
+@app.route('/success_rus', methods=['POST'])
+def success_rus():
+    if request.method == 'POST':
+        cleaner_f()
+
+        f = request.files['file']
+        track_name = f.filename
+        assert track_name[-3:].lower() == 'wav', track_name
+        f.save(track_name)
+        print(track_name)
+
+        id_ = classifier_torch(track_name, net, maxlength=26)
+        os.chmod("static/probs/" + str(id_) + ".png", 777)
+
+        if os.path.exists(track_name):
+            os.remove(track_name)
+        else:
+            print("The file does not exist")
+
+        return render_template("new_success_graph_rus.html", id_=id_)
 
 
 # No caching at all for API endpoints.

@@ -42,15 +42,15 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="/">Alim Bukharaev</a></h1>
+      <h1 class="logo mr-auto"><a href="/rus">Алим Бухараев</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li class="active"><a href="/classify">Neuro Ear</a></li>
-            <li><a href="/classify_rus">RUS</a></li>
+          <li><a href="/rus">Обо мне</a></li>
+          <li class="active"><a href="/classify_rus">Neuro Ear</a></li>
+            <li><a href="/classify">ENG</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -67,7 +67,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <h2>Neuro-Ear</h2>
           <ol>
-            <li><a href="/">Home</a></li>
+            <li><a href="/rus">Обо мне</a></li>
             <li>Neuro-Ear</li>
           </ol>
         </div>
@@ -84,14 +84,14 @@
             <img src="../static/assets/img/neuro_0.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-            <h3>About the project</h3>
+            <h3>О проекте</h3>
             <p class="font-italic">
-              Back in 2018, I was wondering one day if Deep Learning could be applied to musical instrument classification
+              В далёком 2018 мне вдруг стало интересно, как можно использовать Deep Learning для решения задачи классификации музыкальных инструментов по звуку
             </p>
             <p>
-              I decided to write a Deep-CNN model, which would take a chromogram as an input and output a probability of a certain instrument to be present on the record at that time.
-                A lot of audio of different quality was downloaded to create a big enough dataset for training. The accordion, guitar, piano and violin records of both studio and street performers were used.
-                The results were amazing, you can download your own .wav file and see how it works!
+                Я решил попробовать написать свёрточную нейросеть, которая принимает на вход хромограмму и выдаёт карту вероятностей звучания всех инструментов во все моменты времени.
+                Было загружено много аудиофайлов, чтобы создать достаточно большой корпус данных для обучения. Использовались записи аккордеона, гитары, фортепиано и скрипки как студийного, так и любительского качества.
+                 Результаты оказались весьма неплохими, Вы можете загрузить свой собственный файл в формате .wav и посмотреть, как работает сеть!
             </p>
           </div>
         </div>
@@ -108,14 +108,13 @@
             <img src="../static/assets/img/neuro_1.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-3 pt-lg-0">
-            <h3>First step: converting sound into an image</h3>
+            <h3>Шаг первый: превращаем звук в картинку</h3>
               <p class="font-italic">
 
             </p>
             <p>
-              A given .wav file is converted to a chromagram using the Constant-Q Transform, which is a variation of the
-                Fourier Transformation. In contrast to a regular spectrogram, the chromagram focuses specifically on
-                musical notes. The notes are not evenly spaced frequences and they are exactly what makes the sound of a musical instrument distinguishable
+                Данный файл преобразуется в хромограмму с помощью Constant-Q трансформации, которая является разновидностью
+                 преобразования Фурье. В отличие от обычной спектрограммы, в спектре хромограммы присутствуют только музыкальные ноты. Именно по обертонам человеское ухо отличает звук гитары от звука фортепьяно
             </p>
 
           </div>
@@ -126,14 +125,14 @@
             <img src="../static/assets/img/neuro_2.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 order-2 order-lg-1 pt-3 pt-lg-0">
-            <h3>Then, CNN comes into play</h3>
+            <h3>На помощь приходит CNN!</h3>
             <p class="font-italic">
 
             </p>
             <p>
-                Each one-second piece of the chromagram goes through a deep convolutional neural network, which returns
-                the probability of each instrument to be present on this one-second piece. If you'd like to see the architecture in detail,
-                you can find a diagram <a href="../static/model.png">here</a>
+                После этого каждый фрагмент хромограммы длительностью в одну секунду проходит через глубокую сверточную нейронную сеть, которая возвращает
+                 вероятность присутствия каждого инструмента на этом односекундном отрывке. При желании подробно ознакомиться с архитектурой
+                 Вы можете найти диаграмму <a href="../static/model.png">здесь</a>
             </p>
           </div>
         </div>
@@ -143,25 +142,25 @@
             <img src="../static/assets/img/neuro_3.png" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-3 pt-lg-0">
-            <h3>Finally, you can see the results</h3>
+            <h3>Наконец, смотрим на результаты</h3>
             <p class="font-italic">
             </p>
              <p>
-                The net outputs a probabilistic map of the first 20 seconds of a given audio clip.
-                 The rows represent the accordion, the guitar, the piano and the violin correspondingly. The more intense the color of the row,
-                 the higher is the probability of the instrument to sound at that moment
+                 Сеть выдаёт вероятностную карту для первых 20 секунд данного аудиофайла.
+                  Строки представляют собой аккордеон, гитару, фортепиано и скрипку соответственно. Чем светлее цвет,
+                  тем выше вероятность того, что данный инструмент звучит в этот момент
             </p>
           </div>
         </div>
 
         <div class="row content">
             <div class="col-lg-6 order-1 order-lg-1 pt-3 pt-lg-0">
-            <h3>Go check it out!</h3>
+            <h3>Попробуйте сами!</h3>
             <p class="font-italic">
 
             </p>
             <p>
-            Upload your own .wav file and see how it works! <br> Files from 4 to 30 seconds long are highly recommended
+            Загрузите свой .wav файл и посмотрите, что выдаст сеть. <br> Рекомендуется загружать файлы длиной от 4 до 30 секунд
             </p>
             </div>
           <div class="col-lg-6 order-2 order-lg-2">
@@ -169,19 +168,19 @@
               <p> </p>
               <p> </p>
 
-              <form action="/success" method="post" enctype="multipart/form-data" class="l-container">
+              <form action="/success_rus" method="post" enctype="multipart/form-data" class="l-container">
                     <div class="o-asset">
                     <label class="o-asset__select" data-show="true">
                         <input id="js-select-file" type="file" name="file" aria-label="Select Image" class="u-hide-input" accept="audio/*">
-                        <div>Select Audio</div>
+                        <div>Выбрать аудио</div>
                         </label>
                     <div class="o-asset__upload" data-show="false">
                     <div class="o-asset__filename"></div>
                     <button type="submit" class="o-upload" aria-describedby="upload-status">
-                        <div class="o-upload__def"><div>Upload</div></div>
-                        <div class="o-upload__init">Uploading&hellip;</div>
+                        <div class="o-upload__def"><div>Загрузить</div></div>
+                        <div class="o-upload__init">Загружается&hellip;</div>
                         <div class="o-upload__progress"></div>
-                        <div class="o-upload__success">Success!</div>
+                        <div class="o-upload__success">Успех!</div>
                         <div class="u-visually-hidden" id="upload-status" role="alert"></div>
                     </button>
                     </div>

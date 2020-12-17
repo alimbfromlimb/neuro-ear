@@ -43,15 +43,15 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="/">Alim Bukharaev</a></h1>
+      <h1 class="logo mr-auto"><a href="/rus">Алим Бухараев</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/classify">Neuro Ear</a></li>
-            <li><a href="/classify">RUS</a></li>
+          <li><a href="/rus">Обо мне</a></li>
+          <li><a href="/classify_rus">Neuro Ear</a></li>
+            <li><a href="/classify">ENG</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -81,27 +81,27 @@
               </div>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-              <h3>Here are the results!</h3>
+              <h3>А вот и результаты!</h3>
             <p>
-                Each rectangle represents probability of an accordion, a guitar, a piano and a violin to sound during the first 25 seconds of the track. The brighter is the rectangle, the bigger is the corresponding probability
+                Яркость каждого прямоугольника соответствует вероятности услышать аккордеон, гитару, фортепиано и скрипку. Чем светлее прямоугольник, тем вероятнее, что соответствующий иструмент звучит в этот момент времени (исследуются только первые 25 секунд трека)
                 <br>
                 <br>
             </p>
 
 
-              <form action="/success" method="post" enctype="multipart/form-data" class="l-container">
+              <form action="/success_rus" method="post" enctype="multipart/form-data" class="l-container">
                     <div class="o-asset">
                     <label class="o-asset__select" data-show="true">
                         <input id="js-select-file" type="file" name="file" aria-label="Select Image" class="u-hide-input" accept="audio/*">
-                        <div>Select Audio</div>
+                        <div>Выбрать аудио</div>
                         </label>
                     <div class="o-asset__upload" data-show="false">
                     <div class="o-asset__filename"></div>
                     <button type="submit" class="o-upload" aria-describedby="upload-status">
-                        <div class="o-upload__def"><div>Upload</div></div>
-                        <div class="o-upload__init">Uploading&hellip;</div>
+                        <div class="o-upload__def"><div>Загрузить</div></div>
+                        <div class="o-upload__init">Загружается&hellip;</div>
                         <div class="o-upload__progress"></div>
-                        <div class="o-upload__success">Success!</div>
+                        <div class="o-upload__success">Успех!</div>
                         <div class="u-visually-hidden" id="upload-status" role="alert"></div>
                     </button>
                     </div>
