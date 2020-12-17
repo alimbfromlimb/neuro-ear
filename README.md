@@ -16,7 +16,7 @@ git clone https://github.com/alimbfromlimb/neuro-ear.git
 docker build -t neuro-ear neuro-ear/
 docker run -p 8080:8080 neuro-ear
 ```
-On a gcloud server:
+Uploading to the gcloud server:
 ```bash
 git clone https://github.com/alimbfromlimb/neuro-ear.git
 cd neuro-ear
